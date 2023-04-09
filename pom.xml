@@ -28,7 +28,7 @@
 
 		<dependency>
 			<groupId>com.github.martinfrank.ninasgame</groupId>
-			<artifactId>game-model</artifactId>
+			<artifactId>ninas-game-model</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 

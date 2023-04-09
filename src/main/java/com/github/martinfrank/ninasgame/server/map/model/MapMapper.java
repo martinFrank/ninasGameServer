@@ -1,7 +1,5 @@
 package com.github.martinfrank.ninasgame.server.map.model;
 
-import com.github.martinfrank.ninasgame.server.item.model.Item;
-
 public class MapMapper {
 
     public Map fromModel(com.github.martinfrank.ninasgame.model.map.Map from){
