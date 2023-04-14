@@ -10,15 +10,12 @@ import jakarta.persistence.Id;
 @Entity
 public class Map {
 
-    @JsonProperty
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @JsonProperty
     private int width;
 
-    @JsonProperty
     private int height;
 
     public Map() {
