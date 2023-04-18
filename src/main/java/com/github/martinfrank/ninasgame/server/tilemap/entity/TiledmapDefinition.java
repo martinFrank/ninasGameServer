@@ -6,8 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 
+import java.util.List;
+
 @Entity
-public class TilesetDefinition {
+public class TiledmapDefinition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,17 +18,17 @@ public class TilesetDefinition {
     private String filename;
     @Lob
     private String fileContentAsBase64String;
-    private String imageName;
+    private List<String> requiredTilesetNames;
 
-    public TilesetDefinition() {
+    public TiledmapDefinition() {
     }
 
-    public TilesetDefinition(Long id, String name, String filename, String fileContentAsBase64String, String imageName) {
+    public TiledmapDefinition(Long id, String name, String filename, String fileContentAsBase64String, List<String> requiredTilesetNames) {
         this.id = id;
         this.name = name;
         this.filename = filename;
         this.fileContentAsBase64String = fileContentAsBase64String;
-        this.imageName = imageName;
+        this.requiredTilesetNames = requiredTilesetNames;
     }
 
     public Long getId() {
@@ -61,11 +63,11 @@ public class TilesetDefinition {
         this.fileContentAsBase64String = fileContentAsBase64String;
     }
 
-    public String getImageName() {
-        return imageName;
+    public List<String> getRequiredTilesetNames() {
+        return requiredTilesetNames;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setRequiredTilesetNames(List<String> requiredTilesetNames) {
+        this.requiredTilesetNames = requiredTilesetNames;
     }
 }

@@ -22,22 +22,20 @@ public class TilesetImage {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+
     private String filename;
     @Lob
     private String imageContentAsBase64String;
 
-    public TilesetImage(Long id, String filename, String imageContentAsBase64String) {
+    public TilesetImage() {
+    }
+
+    public TilesetImage(Long id, String name, String filename, String imageContentAsBase64String) {
         this.id = id;
+        this.name = name;
         this.filename = filename;
         this.imageContentAsBase64String = imageContentAsBase64String;
-    }
-
-    public TilesetImage( String filename, String imageContentAsBase64String) {
-        this(-1L, filename, imageContentAsBase64String);
-    }
-
-
-    public TilesetImage() {
     }
 
     public Long getId() {
@@ -46,6 +44,14 @@ public class TilesetImage {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getFilename() {

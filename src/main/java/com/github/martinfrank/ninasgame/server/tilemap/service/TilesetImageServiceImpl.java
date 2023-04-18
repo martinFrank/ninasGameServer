@@ -20,7 +20,7 @@ public class TilesetImageServiceImpl implements TilesetImageService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TilesetImageServiceImpl.class);
     @Autowired
-    private TilesetImageRepository tilesetImageRepository;
+    private final TilesetImageRepository tilesetImageRepository;
 
 
     public TilesetImageServiceImpl(TilesetImageRepository tilesetImageRepository){
@@ -39,8 +39,8 @@ public class TilesetImageServiceImpl implements TilesetImageService {
         if (mapCandidate.isPresent()) {
             TilesetImage mapToUpdate = mapCandidate.get();
             mapToUpdate.setId(tilesetDefinition.getId());
-//            mapToUpdate.setFileName(tilesetDefinition.getFileName());
-//            mapToUpdate.setBytesAsBase64String(tilesetDefinition.getBytesAsBase64String());
+            mapToUpdate.setFilename(tilesetDefinition.getFilename());
+            mapToUpdate.setImageContentAsBase64String(tilesetDefinition.getImageContentAsBase64String());
             return mapToUpdate;
         } else {
             throw new ResourceNotFoundException("Person Record not found with id : " + tilesetDefinition.getId());
@@ -63,6 +63,18 @@ public class TilesetImageServiceImpl implements TilesetImageService {
     }
 
     @Override
+    public TilesetImage getByFilename(String filename) {
+        Optional<TilesetImage> candidate = this.tilesetImageRepository.findByFilename(filename);
+        return candidate.orElse(null);
+    }
+
+    @Override
+    public TilesetImage getByName(String name) {
+        Optional<TilesetImage> candidate = this.tilesetImageRepository.findByName(name);
+        return candidate.orElse(null);
+    }
+
+    @Override
     public void delete(long id) {
         Optional<TilesetImage> candidate = this.tilesetImageRepository.findById(id);
         if (candidate.isPresent()) {
@@ -72,10 +84,4 @@ public class TilesetImageServiceImpl implements TilesetImageService {
         }
     }
 
-    @Override
-    public boolean hasFilename(String filename) {
-        List<TilesetImage> candidates = this.tilesetImageRepository.findByFilename(filename);
-        LOGGER.debug("hasFilename candidates are "+candidates);
-        return !candidates.isEmpty();
-    }
 }

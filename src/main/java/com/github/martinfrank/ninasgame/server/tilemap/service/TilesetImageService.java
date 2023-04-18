@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TilesetImageService {
 
-    TilesetImage create(TilesetImage person);
+    TilesetImage create(TilesetImage image);
 
-    TilesetImage update(TilesetImage person);
+    TilesetImage update(TilesetImage image);
 
     List<TilesetImage> getAll();
 
@@ -17,5 +17,8 @@ public interface TilesetImageService {
 
     void delete(long id);
 
-    boolean hasFilename(String filename);
+    TilesetImage getByFilename(String filename);
+
+
+    TilesetImage getByName(String name);
 }

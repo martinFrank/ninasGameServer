@@ -3,6 +3,7 @@ package com.github.martinfrank.ninasgame.server.tilemap.service;
 import com.github.martinfrank.ninasgame.server.map.model.Map;
 import com.github.martinfrank.ninasgame.server.map.repository.MapRepository;
 import com.github.martinfrank.ninasgame.server.tilemap.entity.TilesetDefinition;
+import com.github.martinfrank.ninasgame.server.tilemap.entity.TilesetImage;
 import com.github.martinfrank.ninasgame.server.tilemap.repository.TilesetDefinitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -38,7 +39,7 @@ public class TilesetDefinitionServiceImpl implements TilesetDefinitionService {
             TilesetDefinition mapToUpdate = mapCandidate.get();
             mapToUpdate.setId(tilesetDefinition.getId());
             mapToUpdate.setName(tilesetDefinition.getName());
-            mapToUpdate.setImageId(tilesetDefinition.getImageId());
+//            mapToUpdate.setImageId(tilesetDefinition.getImageId());
             return mapToUpdate;
         } else {
             throw new ResourceNotFoundException("Person Record not found with id : " + tilesetDefinition.getId());
@@ -68,5 +69,11 @@ public class TilesetDefinitionServiceImpl implements TilesetDefinitionService {
         } else {
             throw new ResourceNotFoundException("Record not found with id : " + id);
         }
+    }
+
+    @Override
+    public TilesetDefinition getByName(String name) {
+        Optional<TilesetDefinition> candidate = tilesetDefinitionRepository.findByName(name);
+        return candidate.orElse(null);
     }
 }

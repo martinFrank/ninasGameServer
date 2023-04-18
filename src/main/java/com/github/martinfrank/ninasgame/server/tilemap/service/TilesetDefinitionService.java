@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TilesetDefinitionService {
 
-    TilesetDefinition create(TilesetDefinition person);
+    TilesetDefinition create(TilesetDefinition definition);
 
-    TilesetDefinition update(TilesetDefinition person);
+    TilesetDefinition update(TilesetDefinition definition);
 
     List<TilesetDefinition> getAll();
 
@@ -17,4 +17,5 @@ public interface TilesetDefinitionService {
 
     void delete(long id);
 
+    TilesetDefinition getByName(String name);
 }
