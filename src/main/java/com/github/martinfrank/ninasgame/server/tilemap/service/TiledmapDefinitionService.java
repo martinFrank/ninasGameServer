@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface TiledmapDefinitionService {
 
-    TiledmapDefinition create(TiledmapDefinition map);
+    TiledmapDefinition create(TiledmapDefinition tiledmapDefinition);
 
-    TiledmapDefinition update(TiledmapDefinition map);
+    TiledmapDefinition update(TiledmapDefinition tiledmapDefinition);
 
     List<TiledmapDefinition> getAll();
 

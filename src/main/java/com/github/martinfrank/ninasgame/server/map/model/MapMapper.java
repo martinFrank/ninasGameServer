@@ -7,7 +7,7 @@ public class MapMapper {
     }
 
     public com.github.martinfrank.ninasgame.model.map.Map toModel(Map from){
-        return new com.github.martinfrank.ninasgame.model.map.Map(-1L, from.getWidth(), from.getHeight() );
+        return new com.github.martinfrank.ninasgame.model.map.Map(null, from.getWidth(), from.getHeight() );
     }
 
 }
