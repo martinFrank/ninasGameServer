@@ -2,8 +2,6 @@ package com.github.martinfrank.ninasgame.server.account.service;
 
 import com.github.martinfrank.ninasgame.server.account.entity.LoginDetails;
 import com.github.martinfrank.ninasgame.server.account.repository.LoginDetailsRepository;
-import com.github.martinfrank.ninasgame.server.tilemap.entity.TiledmapDefinition;
-import com.github.martinfrank.ninasgame.server.tilemap.repository.TiledmapDefinitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

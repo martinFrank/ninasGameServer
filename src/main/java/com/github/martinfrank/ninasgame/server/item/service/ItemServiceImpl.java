@@ -1,6 +1,6 @@
 package com.github.martinfrank.ninasgame.server.item.service;
 
-import com.github.martinfrank.ninasgame.server.item.model.Item;
+import com.github.martinfrank.ninasgame.server.item.entity.Item;
 import com.github.martinfrank.ninasgame.server.item.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;

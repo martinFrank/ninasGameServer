@@ -4,6 +4,7 @@ import com.github.martinfrank.ninasgame.server.account.entity.AccountDetails;
 import com.github.martinfrank.ninasgame.server.account.entity.LoginDetails;
 import com.github.martinfrank.ninasgame.server.account.repository.AccountDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,4 +70,12 @@ public class AccountDetailsServiceImpl implements  AccountDetailsService {
         }
     }
 
+    @Override
+    public AccountDetails getBytLoginDetails(LoginDetails loginDetails) {
+        AccountDetails accountDetails = new AccountDetails();
+        accountDetails.setLoginDetails(loginDetails);
+        Example<AccountDetails> example = Example.of(accountDetails);
+        Optional<AccountDetails> candidate = accountDetailsRepository.findOne(example);
+        return candidate.orElse(null);
+    }
 }

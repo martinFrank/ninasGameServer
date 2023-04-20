@@ -4,9 +4,11 @@ import com.github.martinfrank.ninasgame.server.account.entity.AccountDetails;
 import com.github.martinfrank.ninasgame.server.account.entity.LoginDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface AccountDetailsRepository extends JpaRepository<AccountDetails, Long> {
 
+//    List<AccountDetails> getByName(String name);
 
 }

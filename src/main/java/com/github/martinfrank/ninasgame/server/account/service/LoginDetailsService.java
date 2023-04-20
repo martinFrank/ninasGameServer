@@ -1,7 +1,6 @@
 package com.github.martinfrank.ninasgame.server.account.service;
 
 import com.github.martinfrank.ninasgame.server.account.entity.LoginDetails;
-import com.github.martinfrank.ninasgame.server.tilemap.entity.TiledmapDefinition;
 
 import java.util.List;
 

@@ -17,4 +17,6 @@ public interface AccountDetailsService {
 
     void delete(long id);
 
+    AccountDetails getBytLoginDetails(LoginDetails loginDetails);
+
 }

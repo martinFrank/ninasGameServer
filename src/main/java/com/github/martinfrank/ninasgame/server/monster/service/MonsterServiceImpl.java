@@ -35,9 +35,10 @@ public class MonsterServiceImpl implements MonsterService {
             Monster monsterToUpdate = loginDetailsCandidate.get();
             monsterToUpdate.setId(monster.getId());
             monsterToUpdate.setName(monster.getName());
-            monsterToUpdate.setMapName(monster.getMapName());
+            monsterToUpdate.setMap(monster.getMap());
             monsterToUpdate.setXpos(monster.getXpos());
             monsterToUpdate.setYpos(monster.getYpos());
+            //FIXME!!!!!
             return monsterToUpdate;
         } else {
             throw new ResourceNotFoundException("Person Record not found with id : " + monster.getId());

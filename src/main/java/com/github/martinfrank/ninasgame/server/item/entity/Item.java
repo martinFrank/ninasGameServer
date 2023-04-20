@@ -1,13 +1,20 @@
-package com.github.martinfrank.ninasgame.server.item.model;
+package com.github.martinfrank.ninasgame.server.item.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.github.martinfrank.ninasgame.server.map.entity.Map;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Item {
+
+    @ManyToOne
+    @JsonIgnore
+    private Map map;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

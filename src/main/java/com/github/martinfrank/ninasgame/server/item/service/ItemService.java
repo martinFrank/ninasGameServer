@@ -1,6 +1,6 @@
 package com.github.martinfrank.ninasgame.server.item.service;
 
-import com.github.martinfrank.ninasgame.server.item.model.Item;
+import com.github.martinfrank.ninasgame.server.item.entity.Item;
 
 import java.util.List;
 

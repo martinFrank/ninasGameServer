@@ -1,6 +1,6 @@
 package com.github.martinfrank.ninasgame.server.map.service;
 
-import com.github.martinfrank.ninasgame.server.map.model.Map;
+import com.github.martinfrank.ninasgame.server.map.entity.Map;
 import com.github.martinfrank.ninasgame.server.map.repository.MapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -34,12 +34,13 @@ public class MapServiceImpl implements MapService {
 
         if (mapCandidate.isPresent()) {
             Map mapToUpdate = mapCandidate.get();
-            mapToUpdate.setId(map.getId());
-            mapToUpdate.setWidth(map.getWidth());
-            mapToUpdate.setHeight(map.getHeight());
+//            mapToUpdate.setId(map.getId());
+//            mapToUpdate.setWidth(map.getWidth());
+//            mapToUpdate.setHeight(map.getHeight());
+            //FIXME
             return mapToUpdate;
         } else {
-            throw new ResourceNotFoundException("Person Record not found with id : " + map.getId());
+            throw new ResourceNotFoundException("Map Record not found with id : " + map.getId());
         }
     }
 
@@ -54,7 +55,7 @@ public class MapServiceImpl implements MapService {
         if (candidate.isPresent()) {
             return candidate.get();
         } else {
-            throw new ResourceNotFoundException("Person Record not found with id : " + id);
+            throw new ResourceNotFoundException("Map Record not found with id : " + id);
         }
     }
 
@@ -66,5 +67,11 @@ public class MapServiceImpl implements MapService {
         } else {
             throw new ResourceNotFoundException("Record not found with id : " + id);
         }
+    }
+
+    @Override
+    public Map getByName(String name) {
+        Optional<Map> candidate = this.mapRepository.findByName(name);
+        return candidate.orElse(null);
     }
 }

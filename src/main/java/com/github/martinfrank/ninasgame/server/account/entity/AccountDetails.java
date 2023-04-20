@@ -1,6 +1,7 @@
 package com.github.martinfrank.ninasgame.server.account.entity;
 
 import com.github.martinfrank.ninasgame.server.monster.entity.Monster;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class AccountDetails {
     @OneToOne
     private LoginDetails loginDetails;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Monster> playerCharacters = new ArrayList<>();
 
     public AccountDetails() {
