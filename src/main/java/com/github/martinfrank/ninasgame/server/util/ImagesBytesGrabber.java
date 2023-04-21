@@ -13,7 +13,7 @@ public class ImagesBytesGrabber {
 
     public static void main(String[] args) {
         ImagesBytesGrabber br = new ImagesBytesGrabber();
-        br.grabBytes("C:\\Users\\m.frank\\IdeaProjects\\privat\\TileMapReader\\src\\main\\resources\\UltimaHackTiled\\tilesets\\se.png");
+        br.grabBytes("C:\\Users\\m.frank\\IdeaProjects\\privat\\TileMapReader\\src\\main\\resources\\UltimaHackTiled2\\meadow.tmx");
     }
 
     private void grabBytes(String filename) {

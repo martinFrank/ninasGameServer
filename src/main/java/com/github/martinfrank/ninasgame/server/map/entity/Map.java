@@ -23,6 +23,8 @@ public class Map {
 
     private String tiledMapDefinition;
 
+    private String queueName;
+
     private List<String> requiredFilenames = new ArrayList<>();
 
     @OneToMany(mappedBy = "map", cascade = CascadeType.REMOVE, orphanRemoval = true)
@@ -34,9 +36,10 @@ public class Map {
     public Map() {
     }
 
-    public Map(Long id, String name, String tiledMapDefinition, List<String> requiredFilenames, List<Item> items, List<Monster> monster) {
+    public Map(Long id, String name, String tiledMapDefinition, String queueName, List<String> requiredFilenames, List<Item> items, List<Monster> monster) {
         this.id = id;
         this.name = name;
+        this.queueName = queueName;
         this.tiledMapDefinition = tiledMapDefinition;
         this.requiredFilenames = requiredFilenames;
         this.items = items;
@@ -65,6 +68,14 @@ public class Map {
 
     public void setTiledMapDefinition(String tiledMapDefinition) {
         this.tiledMapDefinition = tiledMapDefinition;
+    }
+
+    public String getQueueName() {
+        return queueName;
+    }
+
+    public void setQueueName(String queueName) {
+        this.queueName = queueName;
     }
 
     public List<String> getRequiredFilenames() {

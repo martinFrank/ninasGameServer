@@ -9,14 +9,14 @@ public class MapMapper {
         if(from == null){
             return null;
         }
-        return new Map(null, from.getName(), from.getMapFilename(), from.getRequiredFilenames(), ItemMapper.fromModels(from.getItems()), MonsterMapper.fromModels(from.getMonsters()));
+        return new Map(null, from.getName(), from.getMapFilename(), from.getQueueName(), from.getRequiredFilenames(), ItemMapper.fromModels(from.getItems()), MonsterMapper.fromModels(from.getMonsters()));
     }
 
     public static com.github.martinfrank.ninasgame.model.map.Map toModel(Map from){
         if(from == null){
             return null;
         }
-        return new com.github.martinfrank.ninasgame.model.map.Map( from.getName(), from.getTiledMapDefinition(), from.getRequiredFilenames(), ItemMapper.toModels(from.getItems()), MonsterMapper.toModels(from.getMonster()));
+        return new com.github.martinfrank.ninasgame.model.map.Map( from.getName(), from.getTiledMapDefinition(), from.getQueueName(), from.getRequiredFilenames(), ItemMapper.toModels(from.getItems()), MonsterMapper.toModels(from.getMonster()));
     }
 
 }
